@@ -4,6 +4,7 @@ var bulletspeed = 2000
 var bullet = preload("res://src/weapons/Bullet.tscn")
 var movespeed = 500
 
+
 func _physics_process(delta):
 	var motion = Vector2()
 	
@@ -29,3 +30,10 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_impulse(Vector2(), Vector2(bulletspeed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
+
+func kill():
+	get_tree().reload_current_scene()
+
+func _on_Area2D_body_entered(body):
+	if "Enemy" in body.name:
+		kill()
