@@ -7,6 +7,7 @@
 radius = 114.568
 
 [node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.284838, 0.284838 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
